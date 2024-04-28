@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+Ôªø//---------------------------------------------------------------------------
 #include "Uponto.h"
 
 #pragma hdrstop
@@ -204,7 +204,7 @@ void Poligono::escalonamento(double escalonador)  {
 }
 
 void Poligono::reflexao(int opcao) {
-	double dx = 1.0;  // Assume que n„o h· reflex„o se n„o for uma das opÁıes
+	double dx = 1.0;  // Assume que n√£o h√° reflex√£o se n√£o for uma das op√ß√µes
 	double dy = 1.0;
 
 	if (opcao == 0) {
@@ -451,4 +451,159 @@ void Poligono::fwdDifferences(Ponto p1, Ponto p2, Ponto p3, Ponto p4)
                 aux.y = matrizDy[0][0];
                 pontos.push_back(aux);
         }
+}
+
+// CLIPPING
+//---------------------------------------------------------------------------------------------------------------------------------------------
+Ponto Poligono::novoPonto(Ponto aux, double x, double y)
+{
+        Ponto pto = aux;
+        pto.x = x;
+        pto.y = y;
+		return pto;
+}
+
+Poligono Poligono::clipping(Janela clip, int nPol)
+{
+        Poligono poligono;
+		Ponto auxPon;
+
+        int clipPonto1, clipPonto2;
+        double inclinacao, tang, yEsq, yDir, xTopo, xFundo;
+
+        for (int i = 1; i < pontos.size(); i++)
+        {
+                Ponto aux;
+                clipPonto1 = pontos[i - 1].regionCode(clip);
+                clipPonto2 = pontos[i].regionCode(clip);
+
+                tang = (pontos[i].y - pontos[i - 1].y) / ((pontos[i].x - pontos[i - 1].x) == 0 ? (double)0.01 : (pontos[i].x - pontos[i - 1].x));
+
+                if (tang == 0)
+                {
+                        inclinacao = (double)0.001;
+                }
+                else
+                {
+                        inclinacao = tang;
+                }
+
+                if (((clipPonto1 == 0) || (clipPonto2 == 0)) && clipPonto1 != clipPonto2)
+                {
+                        int ind = clipPonto1 < clipPonto2 ? i : i - 1;
+                        yEsq = inclinacao * (clip.xMin - pontos[ind].x) + pontos[ind].y;
+                        yDir = inclinacao * (clip.xMax - pontos[ind].x) + pontos[ind].y;
+                        xTopo = pontos[ind].x + 1 / (inclinacao == 0 ? (double)0.01 : inclinacao) * (clip.yMax - pontos[ind].y);
+                        xFundo = pontos[ind].x + 1 / (inclinacao == 0 ? (double)0.01 : inclinacao) * (clip.yMin - pontos[ind].y);
+
+                        switch (clipPonto1 < clipPonto2 ? clipPonto2 : clipPonto1)
+                        {
+                        case 1:
+                                aux = novoPonto(aux, clip.xMin, yEsq);
+                                break;
+                        case 2:
+                                aux = novoPonto(aux, clip.xMax, yDir);
+                                break;
+                        case 4:
+                                aux = novoPonto(aux, xFundo, clip.yMin);
+                                break;
+                        case 5:
+                                aux = yEsq > clip.yMin ? novoPonto(aux, clip.xMin, yEsq) : novoPonto(aux, xFundo, clip.yMin);
+                                break;
+                        case 6:
+                                aux = xFundo < clip.xMax ? novoPonto(aux, xFundo, clip.yMin) : novoPonto(aux, clip.xMax, yDir);
+                                break;
+                        case 8:
+                                aux = novoPonto(aux, xTopo, clip.yMax);
+                                break;
+                        case 9:
+                                aux = yEsq < clip.yMax ? novoPonto(aux, clip.xMin, yEsq) : novoPonto(aux, xTopo, clip.yMax);
+                                break;
+                        case 10:
+                                aux = yDir < clip.yMax ? novoPonto(aux, clip.xMax, yDir) : novoPonto(aux, xTopo, clip.yMax);
+                                break;
+                        }
+
+                        if (clipPonto1 < clipPonto2)
+                        {
+
+                                poligono.pontos.push_back(Ponto(pontos[i - 1].x - 1, pontos[i - 1].y - 1));
+                                poligono.pontos.push_back(Ponto(aux.x - 1, aux.y - 1));
+                        }
+                        else
+                        {
+
+                                poligono.pontos.push_back(Ponto(aux.x - 1, aux.y - 1));
+                                poligono.pontos.push_back(Ponto(pontos[i].x - 1, pontos[i].y - 1));
+                        }
+                }
+                else if ((clipPonto1 == clipPonto2) && clipPonto2 == 0)
+                {
+
+                        poligono.pontos.push_back(Ponto(pontos[i - 1].x - 1, pontos[i - 1].y - 1));
+                        poligono.pontos.push_back(Ponto(pontos[i].x - 1, pontos[i].y - 1));
+                }
+                // PARCIALMENTE
+                else if ((clipPonto1 != clipPonto2) && ((clipPonto1 & clipPonto2) == 0))
+                {
+                        Ponto aux;
+                        for (int j = i - 1; j <= i; j++)
+                        {
+                                // CALCULO DE INTERSECÔøΩÔøΩES
+                                yEsq = inclinacao * (clip.xMin - pontos[j].x) + pontos[j].y;
+                                yDir = inclinacao * (clip.xMax - pontos[j].x) + pontos[j].y;
+                                xTopo = pontos[j].x + 1 / inclinacao * (clip.yMax - pontos[j].y);
+                                xFundo = pontos[j].x + 1 / inclinacao * (clip.yMin - pontos[j].y);
+
+                                switch (j == i ? clipPonto2 : clipPonto1)
+                                {
+                                case 1:
+                                        if (yEsq >= clip.yMin && yEsq <= clip.yMax)
+                                                aux = novoPonto(aux, clip.xMin, yEsq);
+                                        break;
+                                case 2:
+                                        if (yDir >= clip.yMin && yDir <= clip.yMax)
+                                                aux = novoPonto(aux, clip.xMax, yDir);
+                                        break;
+                                case 4:
+                                        if (xFundo >= clip.xMin && xFundo <= clip.xMax)
+                                                aux = novoPonto(aux, xFundo, clip.yMin);
+                                        break;
+                                case 5:
+                                        if (xFundo >= clip.xMin && xFundo <= clip.xMax)
+                                                aux = novoPonto(aux, xFundo, clip.yMin);
+                                        else if (yEsq >= clip.yMin && yEsq <= clip.yMax)
+                                                aux = novoPonto(aux, clip.xMin, yEsq);
+                                        break;
+                                case 6:
+                                        if (xFundo >= clip.xMin && xFundo <= clip.xMax)
+                                                aux = novoPonto(aux, xFundo, clip.yMin);
+                                        else if (yDir >= clip.yMin && yDir <= clip.yMax)
+                                                aux = novoPonto(aux, clip.xMax, yDir);
+                                        break;
+                                case 8:
+                                        if (xTopo >= clip.xMin && xTopo <= clip.xMax)
+                                                aux = novoPonto(aux, xTopo, clip.yMax);
+                                        break;
+                                case 9:
+                                        if (xTopo >= clip.xMin && xTopo <= clip.xMax)
+                                                aux = novoPonto(aux, xTopo, clip.yMax);
+                                        else if (yEsq >= clip.yMin && yEsq <= clip.yMax)
+                                                aux = novoPonto(aux, clip.xMin, yEsq);
+                                        break;
+                                case 10:
+                                        if (xTopo >= clip.xMin && xTopo <= clip.xMax)
+                                                aux = novoPonto(aux, xTopo, clip.yMax);
+                                        else if (yDir >= clip.yMin && yDir <= clip.yMax)
+                                                aux = novoPonto(aux, clip.xMax, yDir);
+                                        break;
+                                }
+                                if (aux.x == aux.y && aux.x == 0)
+                                        break;
+                                else
+                                        poligono.pontos.push_back(aux);
+                        }
+                }
+        }
+        return poligono;
 }

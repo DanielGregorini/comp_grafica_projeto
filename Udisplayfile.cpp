@@ -23,11 +23,20 @@ void DisplayFile::desenha(TCanvas *canvas, Janela mundo, Janela vp, int tipoReta
 
  double xx = mundo.yMax;
 
- for (int i = 0; i < poligonos.size(); i++) {
+  for(int i = 0; i < poligonos.size(); i++){
+        if (i > 1){
+			canvas->Pen->Color = clBlue;
+		}
+		if(poligonos[i].tipo == 'A'){
+        		//canvas->Pen->Color = clRed;
+				canvas->Pen->Width = 6;
+        }
+        else{
+				canvas->Pen->Width = 3;
+        }
+		poligonos[i].desenha(canvas, mundo, vp, tipoReta);
+	}
 
-	poligonos[i].desenha(canvas, mundo, vp, tipoReta);
-
- }
 
 }
 
