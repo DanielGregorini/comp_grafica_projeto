@@ -19,6 +19,8 @@ Poligono pol;
 DisplayFile display;
 Janela mundo(-250, -250, 250, 250);
 Janela vp(0, 0, 500, 500);
+Janela clipper(-125, -125, 125, 125);
+bool cria_clip = false;
 
 bool inicia = false;
 bool inicia_circunferencia = false;
@@ -443,7 +445,7 @@ void __fastcall TForm1::casteljau_buttonClick(TObject *Sender)
 
 		 //pol.pontos.pop_front();
 
-		pol.tipo = 'B';
+		pol.tipo = 'C';
 		display.poligonos.push_back(pol);
 		pol.pontos.clear();
 
@@ -591,3 +593,70 @@ void __fastcall TForm1::btnForwardBezierClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 }
+
+//----------clipping
+void __fastcall TForm1::Button6Click(TObject *Sender)
+{
+	   if (cria_clip==false)
+		{
+				pol.pontos.clear();
+				pol.pontos.push_back(Ponto(clipper.xMin, clipper.yMax));
+                pol.pontos.push_back(Ponto(clipper.xMax, clipper.yMax));
+                pol.pontos.push_back(Ponto(clipper.xMax, clipper.xMin));
+                pol.pontos.push_back(Ponto(clipper.xMin, clipper.yMin));
+                pol.pontos.push_back(Ponto(clipper.xMin, clipper.yMax));
+
+				pol.tipo = 'C';
+                pol.id = contId++;
+
+                display.poligonos.push_back(pol);
+
+                pol.pontos.clear();
+
+				display.desenha(Form1->Image1->Canvas, mundo, vp, rgTipoReta->ItemIndex);
+				cria_clip = true;
+
+        }
+
+        int max = display.poligonos.size();
+
+            for (int i = 2; i <= max; i++)
+            {
+				if ((display.poligonos[i].tipo != 'C') && (display.poligonos[i].tipo != 'A'))
+				{
+					Poligono pol_aux;
+
+					pol_aux = display.poligonos[i].clipping(clipper, display.poligonos.size());
+					pol_aux.tipo = 'A';
+					pol_aux.id = contId++;
+					display.poligonos.push_back(pol_aux);
+					pol_aux.pontos.clear();
+				}
+			}
+
+			//display.mostra(lbPoligonos);
+			display.mostra(Form1->LBPOLIGONOS);
+			display.desenha(Form1->Image1->Canvas, mundo, vp, rgTipoReta->ItemIndex);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::TranslacaoHomogeniaButtonClick(TObject *Sender)
+{
+
+    double dx, dy;
+
+	dx = StrToFloat(edx->Text);
+	dy = StrToFloat(edy->Text);
+
+	if (LBPOLIGONOS->ItemIndex != -1)
+	{
+		display.poligonos[LBPOLIGONOS->ItemIndex].translacao(dx, dy);
+	}
+	display.desenha(Form1->Image1->Canvas, mundo, vp, rgTipoReta->ItemIndex);
+
+
+
+
+}
+//---------------------------------------------------------------------------
+

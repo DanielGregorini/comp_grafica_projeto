@@ -22,7 +22,7 @@ class Poligono{
 	void mostra(TListBox *listbox);
 
 	void mostraPontos(TListBox *listbox);
-	void translacao(double dx, double dy);
+	void translacao(double dx, double dy, bool homogenia);
 
 
 	//

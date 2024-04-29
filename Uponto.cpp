@@ -37,8 +37,19 @@ void Ponto::reflexao(double dx, double dy){
 	 y = y * dy;
 }
 
-
 void Ponto::escalonamento(double escalonador){
 	x = x * escalonador;
 	y = y * escalonador;
+}
+
+int Ponto::regionCode(Janela clip)
+{
+    int cohen = 0;
+
+    cohen += (x < clip.xMin) ? 1 : 0;
+    cohen += (x > clip.xMax) ? 2 : 0;
+    cohen += (y < clip.yMin) ? 4 : 0;
+    cohen += (y > clip.yMax) ? 8 : 0;
+
+	return cohen;
 }

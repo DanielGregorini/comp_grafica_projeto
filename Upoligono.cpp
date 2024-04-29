@@ -97,8 +97,7 @@ void Poligono::drawBresenham(TCanvas *canvas, int x1, int y1, int x2, int y2)
         {
                 erro = 0;
                 for (int j = 0; j < i - 1; j++)
-                {
-
+				{
                         deltax = ABS((x2 - x1));
                         deltay = ABS((y2 - y1));
                         signalx = SIGN((x2 - x1));
@@ -189,14 +188,38 @@ void Poligono::mostraPontos(TListBox *listbox){
 
 }
 
-void Poligono::translacao(double dx, double dy){
+void Poligono::translacao(double dx, double dy, bool homogenia) {
+	if (homogenia) {
 
-	for(int i = 0; i < pontos.size(); i++){
-		 pontos[i].translacao(dx, dy);
-	}
+		double translacao[3][3] = {
+            {1, 0, 0},
+            {0, 1, 0},
+            {dx, dy, 1}
+        };
+        double resultado[3];
+
+        for (int i = 0; i < pontos.size(); i++) {
+			double ponto[3] = {pontos[i].x, pontos[i].y, 1};
+
+			resultado[0] = ponto[0] * translacao[0][0] + ponto[1] * translacao[1][0] + ponto[2] * translacao[2][0];
+			resultado[1] = ponto[0] * translacao[0][1] + ponto[1] * translacao[1][1] + ponto[2] * translacao[2][1];
+			resultado[2] = ponto[0] * translacao[0][2] + ponto[1] * translacao[1][2] + ponto[2] * translacao[2][2];
+
+            pontos[i].x = resultado[0];
+            pontos[i].y = resultado[1];
+        }
+    } else {
+
+        for (int i = 0; i < pontos.size(); i++) {
+			pontos[i].translacao(dx, dy);
+        }
+    }
 }
 
+
+
 void Poligono::escalonamento(double escalonador)  {
+	//multiplica as coordenas de todos os pontos pelo escalonador
 	for(int i = 0; i < pontos.size(); i++){
 		 pontos[i].escalonamento(escalonador);
 	}
@@ -204,7 +227,9 @@ void Poligono::escalonamento(double escalonador)  {
 }
 
 void Poligono::reflexao(int opcao) {
-	double dx = 1.0;  // Assume que não há reflexão se não for uma das opções
+
+	// Assume que não há reflexão se não for uma das opções
+	double dx = 1.0;
 	double dy = 1.0;
 
 	if (opcao == 0) {

@@ -59,6 +59,8 @@ __published:	// IDE-managed Components
 	TButton *btnBspline;
 	TButton *btnForwardBezier;
 	TLabel *Label8;
+	TButton *Button6;
+	TButton *TranslacaoHomogeniaButton;
 	void __fastcall Image1MouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Image1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
@@ -83,6 +85,8 @@ __published:	// IDE-managed Components
 	void __fastcall Button5Click(TObject *Sender);
 	void __fastcall btnBsplineClick(TObject *Sender);
 	void __fastcall btnForwardBezierClick(TObject *Sender);
+	void __fastcall Button6Click(TObject *Sender);
+	void __fastcall TranslacaoHomogeniaButtonClick(TObject *Sender);
 
 
 private:	// User declarations

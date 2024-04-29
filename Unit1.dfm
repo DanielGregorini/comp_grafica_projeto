@@ -265,7 +265,7 @@
   end
   object TopButton: TButton
     Left = 758
-    Top = 188
+    Top = 228
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -278,7 +278,7 @@
   end
   object RightButton: TButton
     Left = 821
-    Top = 227
+    Top = 267
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -291,7 +291,7 @@
   end
   object LowButton: TButton
     Left = 758
-    Top = 227
+    Top = 267
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -304,7 +304,7 @@
   end
   object LeftButton: TButton
     Left = 695
-    Top = 227
+    Top = 267
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -317,7 +317,7 @@
   end
   object ZoomInButton: TButton
     Left = 695
-    Top = 274
+    Top = 314
     Width = 70
     Height = 33
     Margins.Left = 4
@@ -330,7 +330,7 @@
   end
   object ZoomOutButton: TButton
     Left = 806
-    Top = 272
+    Top = 312
     Width = 70
     Height = 37
     Caption = '-'
@@ -352,7 +352,7 @@
   end
   object rgTipoReta: TRadioGroup
     Left = 695
-    Top = 325
+    Top = 365
     Width = 152
     Height = 131
     Margins.Left = 4
@@ -568,5 +568,23 @@
     Caption = 'Forward Bezier'
     TabOrder = 32
     OnClick = btnForwardBezierClick
+  end
+  object Button6: TButton
+    Left = 558
+    Top = 555
+    Width = 94
+    Height = 32
+    Caption = 'Clipping'
+    TabOrder = 33
+    OnClick = Button6Click
+  end
+  object TranslacaoHomogeniaButton: TButton
+    Left = 781
+    Top = 160
+    Width = 129
+    Height = 33
+    Caption = 'Transla'#231#227'o Homogenia'
+    TabOrder = 34
+    OnClick = TranslacaoHomogeniaButtonClick
   end
 end

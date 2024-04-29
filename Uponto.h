@@ -23,6 +23,8 @@ class Ponto{
 
 	void reflexao(double dx, double dy);
 
+	int regionCode(Janela clip);
+
 	AnsiString mostraPonto();
 };
 
