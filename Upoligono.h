@@ -14,6 +14,11 @@ class Poligono{
 		char tipo;
 		std::vector<Ponto> pontos;
 
+
+	double PontoCentralX();
+	double PontoCentralY();
+	double PontoCentralZ();
+
 	//desenha e retas
 	void desenha(TCanvas *canvas, Janela mundo, Janela vp, int típoReta);
 	void drawBresenham(TCanvas *canvas, int x1, int y1, int x2, int y2);
@@ -25,11 +30,16 @@ class Poligono{
 	void translacao(double dx, double dy, bool homogenia);
 
 
-	//
+	//   transformacoes
 	void escalonamento(double escalonador);
 	void circunferencia(Ponto aux, double r);
 	void rotacionar(TCanvas* canvas, Janela mundo, Janela vp, int tipoReta, double teta);
 	void reflexao(int opcao);
+
+	//3D
+	void translada3D(double x, double y, double z, double *px, double *py, double *pz, boolean homogenea);
+	void escalona3D(Janela mundo,Janela vp,double x, double y, double z, double *px, double *py, double *pz, double Xc, double Yc, double Zc, boolean homogenea);
+	void rotacao3D(double teta, double *px, double *py, double *pz, double Xc, double Yc,double Zc, boolean homogenea, int eixo);
 
 	void rotacionarCentro(TCanvas* canvas, Janela mundo, Janela vp,
 	int tipoReta, double teta);

@@ -27,7 +27,6 @@ __published:	// IDE-managed Components
 	TEdit *edXMax;
 	TEdit *edYMax;
 	TLabel *Label1;
-	TLabel *Label2;
 	TLabel *Label3;
 	TLabel *Label4;
 	TLabel *Label5;
@@ -61,6 +60,19 @@ __published:	// IDE-managed Components
 	TLabel *Label8;
 	TButton *Button6;
 	TButton *TranslacaoHomogeniaButton;
+	TButton *bt3D;
+	TRadioGroup *TipoPoligono3D;
+	TRadioGroup *tipoEixo3D;
+	TButton *btRotaciona3D;
+	TButton *btEscalona3D;
+	TButton *btTranslada3D;
+	TRadioGroup *rgTipoTransformacao;
+	TLabel *Label9;
+	TLabel *Label10;
+	TLabel *Label11;
+	TEdit *EditX3D;
+	TEdit *EditY3D;
+	TEdit *EditZ3D;
 	void __fastcall Image1MouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Image1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,
@@ -87,6 +99,10 @@ __published:	// IDE-managed Components
 	void __fastcall btnForwardBezierClick(TObject *Sender);
 	void __fastcall Button6Click(TObject *Sender);
 	void __fastcall TranslacaoHomogeniaButtonClick(TObject *Sender);
+	void __fastcall bt3DClick(TObject *Sender);
+	void __fastcall btRotaciona3DClick(TObject *Sender);
+	void __fastcall btTranslada3DClick(TObject *Sender);
+	void __fastcall btEscalona3DClick(TObject *Sender);
 
 
 private:	// User declarations

@@ -13,21 +13,21 @@
   Scaled = False
   TextHeight = 15
   object LBVP: TLabel
-    Left = 17
-    Top = 564
+    Left = 8
+    Top = 533
     Width = 27
     Height = 15
     Caption = 'LBVP'
   end
   object LBMUNDO: TLabel
-    Left = 460
-    Top = 564
+    Left = 448
+    Top = 534
     Width = 58
     Height = 15
     Caption = 'LBMUNDO'
   end
   object POLIGONOS: TLabel
-    Left = 528
+    Left = 514
     Top = 9
     Width = 66
     Height = 15
@@ -38,8 +38,8 @@
     Caption = 'POLIGONOS'
   end
   object PONTOS: TLabel
-    Left = 528
-    Top = 165
+    Left = 514
+    Top = 154
     Width = 45
     Height = 15
     Margins.Left = 4
@@ -49,7 +49,7 @@
     Caption = 'PONTOS'
   end
   object Label1: TLabel
-    Left = 593
+    Left = 579
     Top = 317
     Width = 27
     Height = 15
@@ -59,19 +59,8 @@
     Margins.Bottom = 4
     Caption = 'xMin'
   end
-  object Label2: TLabel
-    Left = 100
-    Top = 540
-    Width = 34
-    Height = 15
-    Margins.Left = 4
-    Margins.Top = 4
-    Margins.Right = 4
-    Margins.Bottom = 4
-    Caption = 'Label2'
-  end
   object Label3: TLabel
-    Left = 592
+    Left = 578
     Top = 421
     Width = 27
     Height = 15
@@ -82,7 +71,7 @@
     Caption = 'yMin'
   end
   object Label4: TLabel
-    Left = 590
+    Left = 576
     Top = 367
     Width = 29
     Height = 15
@@ -93,7 +82,7 @@
     Caption = 'xMax'
   end
   object Label5: TLabel
-    Left = 590
+    Left = 576
     Top = 470
     Width = 29
     Height = 15
@@ -115,7 +104,7 @@
     Caption = 'Label6'
   end
   object Label7: TLabel
-    Left = 814
+    Left = 800
     Top = 9
     Width = 7
     Height = 15
@@ -126,8 +115,8 @@
     Caption = 'X'
   end
   object Y: TLabel
-    Left = 814
-    Top = 65
+    Left = 800
+    Top = 58
     Width = 7
     Height = 15
     Margins.Left = 4
@@ -137,15 +126,36 @@
     Caption = 'Y'
   end
   object Label8: TLabel
-    Left = 958
-    Top = 329
+    Left = 957
+    Top = 283
     Width = 36
     Height = 15
     Caption = 'Curvas'
   end
+  object Label9: TLabel
+    Left = 775
+    Top = 500
+    Width = 7
+    Height = 15
+    Caption = 'X'
+  end
+  object Label10: TLabel
+    Left = 775
+    Top = 527
+    Width = 7
+    Height = 15
+    Caption = 'Y'
+  end
+  object Label11: TLabel
+    Left = 775
+    Top = 550
+    Width = 7
+    Height = 15
+    Caption = 'Z'
+  end
   object Panel1: TPanel
-    Left = 16
-    Top = 56
+    Left = 5
+    Top = 26
     Width = 502
     Height = 502
     Caption = 'Panel1'
@@ -160,12 +170,12 @@
       Align = alClient
       OnMouseDown = Image1MouseDown
       OnMouseMove = Image1MouseMove
-      ExplicitLeft = 2
-      ExplicitTop = -29
+      ExplicitLeft = -54
+      ExplicitTop = -17
     end
   end
   object Button1: TButton
-    Left = 558
+    Left = 544
     Top = 517
     Width = 94
     Height = 31
@@ -178,8 +188,8 @@
     OnClick = Button1Click
   end
   object LBPOLIGONOS: TListBox
-    Left = 528
-    Top = 32
+    Left = 514
+    Top = 25
     Width = 151
     Height = 121
     Margins.Left = 4
@@ -191,8 +201,8 @@
     OnClick = LBPOLIGONOSClick
   end
   object LBPONTOS: TListBox
-    Left = 525
-    Top = 188
+    Left = 514
+    Top = 177
     Width = 151
     Height = 121
     Margins.Left = 4
@@ -203,7 +213,7 @@
     TabOrder = 3
   end
   object Button2: TButton
-    Left = 687
+    Left = 673
     Top = 35
     Width = 94
     Height = 31
@@ -216,7 +226,7 @@
     OnClick = Button2Click
   end
   object edXMin: TEdit
-    Left = 528
+    Left = 514
     Top = 332
     Width = 151
     Height = 23
@@ -228,7 +238,7 @@
     Text = '-250'
   end
   object edYMin: TEdit
-    Left = 528
+    Left = 514
     Top = 436
     Width = 151
     Height = 23
@@ -240,7 +250,7 @@
     Text = '-250'
   end
   object edXMax: TEdit
-    Left = 528
+    Left = 514
     Top = 382
     Width = 151
     Height = 23
@@ -252,7 +262,7 @@
     Text = '250'
   end
   object edYMax: TEdit
-    Left = 528
+    Left = 514
     Top = 486
     Width = 151
     Height = 23
@@ -264,8 +274,8 @@
     Text = '250'
   end
   object TopButton: TButton
-    Left = 758
-    Top = 228
+    Left = 753
+    Top = 197
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -277,8 +287,8 @@
     OnClick = TopButtonClick
   end
   object RightButton: TButton
-    Left = 821
-    Top = 267
+    Left = 816
+    Top = 236
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -290,8 +300,8 @@
     OnClick = RightButtonClick
   end
   object LowButton: TButton
-    Left = 758
-    Top = 267
+    Left = 753
+    Top = 236
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -303,8 +313,8 @@
     OnClick = LowButtonClick
   end
   object LeftButton: TButton
-    Left = 695
-    Top = 267
+    Left = 690
+    Top = 236
     Width = 55
     Height = 31
     Margins.Left = 4
@@ -316,10 +326,10 @@
     OnClick = LeftButtonClick
   end
   object ZoomInButton: TButton
-    Left = 695
-    Top = 314
-    Width = 70
-    Height = 33
+    Left = 690
+    Top = 197
+    Width = 55
+    Height = 31
     Margins.Left = 4
     Margins.Top = 4
     Margins.Right = 4
@@ -329,16 +339,16 @@
     OnClick = ZoomInButtonClick
   end
   object ZoomOutButton: TButton
-    Left = 806
-    Top = 312
-    Width = 70
-    Height = 37
+    Left = 815
+    Top = 198
+    Width = 56
+    Height = 31
     Caption = '-'
     TabOrder = 14
     OnClick = ZoomOutButtonClick
   end
   object Button3: TButton
-    Left = 687
+    Left = 673
     Top = 122
     Width = 94
     Height = 31
@@ -351,8 +361,8 @@
     OnClick = Button3Click
   end
   object rgTipoReta: TRadioGroup
-    Left = 695
-    Top = 365
+    Left = 690
+    Top = 275
     Width = 152
     Height = 131
     Margins.Left = 4
@@ -368,8 +378,8 @@
     TabOrder = 16
   end
   object edx: TEdit
-    Left = 806
-    Top = 34
+    Left = 794
+    Top = 27
     Width = 77
     Height = 23
     Margins.Left = 4
@@ -380,8 +390,8 @@
     Text = '0'
   end
   object edy: TEdit
-    Left = 806
-    Top = 91
+    Left = 792
+    Top = 77
     Width = 77
     Height = 23
     Margins.Left = 4
@@ -392,7 +402,7 @@
     Text = '0'
   end
   object Translação: TButton
-    Left = 806
+    Left = 792
     Top = 122
     Width = 94
     Height = 31
@@ -406,7 +416,7 @@
   end
   object anguloRotacao: TEdit
     Left = 942
-    Top = 27
+    Top = 4
     Width = 43
     Height = 23
     Margins.Left = 4
@@ -418,7 +428,7 @@
   end
   object Button4: TButton
     Left = 917
-    Top = 58
+    Top = 35
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -431,7 +441,7 @@
   end
   object escalonamento_edit: TEdit
     Left = 1040
-    Top = 27
+    Top = 4
     Width = 47
     Height = 23
     Margins.Left = 4
@@ -443,7 +453,7 @@
   end
   object escalonamento_button: TButton
     Left = 1019
-    Top = 58
+    Top = 35
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -456,7 +466,7 @@
   end
   object radio_reflexao: TRadioGroup
     Left = 917
-    Top = 136
+    Top = 113
     Width = 171
     Height = 131
     Margins.Left = 4
@@ -473,7 +483,7 @@
   end
   object reflexao_button: TButton
     Left = 958
-    Top = 272
+    Top = 252
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -486,7 +496,7 @@
   end
   object rodar_eixo_button: TButton
     Left = 917
-    Top = 97
+    Top = 74
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -498,7 +508,7 @@
     OnClick = rodar_eixo_buttonClick
   end
   object inicar_circ_button: TButton
-    Left = 686
+    Left = 672
     Top = 73
     Width = 95
     Height = 32
@@ -507,8 +517,8 @@
     OnClick = inicar_circ_buttonClick
   end
   object casteljau_button: TButton
-    Left = 891
-    Top = 351
+    Left = 890
+    Top = 305
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -520,8 +530,8 @@
     OnClick = casteljau_buttonClick
   end
   object hermite_button: TButton
-    Left = 890
-    Top = 390
+    Left = 889
+    Top = 344
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -533,8 +543,8 @@
     OnClick = hermite_buttonClick
   end
   object Button5: TButton
-    Left = 993
-    Top = 351
+    Left = 992
+    Top = 305
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -546,8 +556,8 @@
     OnClick = Button5Click
   end
   object btnBspline: TButton
-    Left = 993
-    Top = 390
+    Left = 992
+    Top = 344
     Width = 94
     Height = 31
     Cursor = crHandPoint
@@ -560,8 +570,8 @@
     OnClick = btnBsplineClick
   end
   object btnForwardBezier: TButton
-    Left = 890
-    Top = 428
+    Left = 889
+    Top = 382
     Width = 96
     Height = 32
     Cursor = crHandPoint
@@ -570,7 +580,7 @@
     OnClick = btnForwardBezierClick
   end
   object Button6: TButton
-    Left = 558
+    Left = 544
     Top = 555
     Width = 94
     Height = 32
@@ -579,12 +589,111 @@
     OnClick = Button6Click
   end
   object TranslacaoHomogeniaButton: TButton
-    Left = 781
+    Left = 767
     Top = 160
     Width = 129
     Height = 33
     Caption = 'Transla'#231#227'o Homogenia'
     TabOrder = 34
     OnClick = TranslacaoHomogeniaButtonClick
+  end
+  object bt3D: TButton
+    Left = 871
+    Top = 462
+    Width = 96
+    Height = 33
+    Caption = 'Novo Poligono 3D'
+    TabOrder = 35
+    OnClick = bt3DClick
+  end
+  object TipoPoligono3D: TRadioGroup
+    Left = 751
+    Top = 413
+    Width = 98
+    Height = 81
+    Caption = 'Poligono 3D'
+    Items.Strings = (
+      'Cubo'
+      'Cubo 2'
+      'Piramide'
+      'Piramide 2')
+    TabOrder = 36
+  end
+  object tipoEixo3D: TRadioGroup
+    Left = 672
+    Top = 413
+    Width = 73
+    Height = 81
+    Caption = 'Eixo'
+    ItemIndex = 0
+    Items.Strings = (
+      'X'
+      'Y'
+      'Z'
+      'XYZ')
+    TabOrder = 37
+  end
+  object btRotaciona3D: TButton
+    Left = 869
+    Top = 501
+    Width = 97
+    Height = 34
+    Caption = 'Rotaciona 3D'
+    TabOrder = 38
+    OnClick = btRotaciona3DClick
+  end
+  object btEscalona3D: TButton
+    Left = 972
+    Top = 501
+    Width = 97
+    Height = 33
+    Caption = 'Escalona 3D'
+    TabOrder = 39
+    OnClick = btEscalona3DClick
+  end
+  object btTranslada3D: TButton
+    Left = 973
+    Top = 462
+    Width = 97
+    Height = 33
+    Caption = 'Transla'#231#227'o 3D'
+    TabOrder = 40
+    OnClick = btTranslada3DClick
+  end
+  object rgTipoTransformacao: TRadioGroup
+    Left = 672
+    Top = 500
+    Width = 97
+    Height = 81
+    Caption = 'Transforma'#231#227'o'
+    ItemIndex = 0
+    Items.Strings = (
+      'Normal'
+      'Homogenea')
+    TabOrder = 41
+  end
+  object EditX3D: TEdit
+    Left = 788
+    Top = 500
+    Width = 65
+    Height = 21
+    TabOrder = 42
+    Text = '0'
+  end
+  object EditY3D: TEdit
+    Left = 788
+    Top = 523
+    Width = 65
+    Height = 21
+    TabOrder = 43
+    Text = '0'
+  end
+  object EditZ3D: TEdit
+    Left = 788
+    Top = 548
+    Width = 65
+    Height = 21
+    TabOrder = 44
+    Text = '0'
   end
 end

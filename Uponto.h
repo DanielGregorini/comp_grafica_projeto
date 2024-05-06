@@ -9,9 +9,11 @@ class Ponto{
   public:
 	double x;
 	double y;
+	double z;
 
 	Ponto();
 	Ponto(double nx, double ny);
+	Ponto(double nx, double ny, double nz);
 
 	int xW2Vp(Janela mundo, Janela vp);
 

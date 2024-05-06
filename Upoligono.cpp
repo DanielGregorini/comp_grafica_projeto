@@ -299,6 +299,183 @@ void Poligono::rotacionarCentro(TCanvas* canvas, Janela mundo, Janela vp,
 
 	desenha(canvas, mundo, vp, tipoReta);
 }
+//------------------------------------------------------------------//
+//3d
+void Poligono::translada3D(double x, double y, double z, double *px, double *py, double *pz, boolean homogenea){
+
+        double ponto[4] = {*px,*py,*pz,1};
+        double translacao[4][4] = {{1, 0, 0, 0},
+                                   {0, 1, 0, 0},
+                                   {0, 0, 1, 0},
+								   {x, y, z, 1}};
+		double resultado[4];
+
+		if(homogenea){
+				resultado[0] = ponto[0] * translacao[0][0] + ponto[1]*translacao[1][0] + ponto[2]*translacao[2][0] + ponto[3]*translacao[3][0];
+                resultado[1] = ponto[0] * translacao[0][1] + ponto[1]*translacao[1][1] + ponto[2]*translacao[2][1] + ponto[3]*translacao[3][1];
+                resultado[2] = ponto[0] * translacao[0][2] + ponto[1]*translacao[1][2] + ponto[2]*translacao[2][2] + ponto[3]*translacao[3][2];
+                resultado[3] = ponto[0] * translacao[0][3] + ponto[1]*translacao[1][3] + ponto[2]*translacao[2][3] + ponto[3]*translacao[3][3];
+
+                *px = resultado[0];
+                *py = resultado[1];
+                *pz = resultado[2];
+        }else{
+                *px = *px+x;
+                *py = *py+y;
+                *pz = *pz+z;
+        }
+}
+
+void Poligono::escalona3D(Janela mundo,Janela vp,double x, double y, double z, double *px, double *py, double *pz, double Xc, double Yc, double Zc, boolean homogenea) {
+        double ponto[4] = {*px,*py,*pz,1};
+
+        double escalonamento[4][4] = {{x, 0, 0, 0},
+                                      {0, y, 0, 0},
+									  {0, 0, z, 0},
+                                      {0, 0, 0, 1}};
+        double translacao[4][4] = {{1, 0, 0, 0},
+                                   {0, 1, 0, 0},
+                                   {0, 0, 1, 0},
+                                   {-Xc, -Yc, -Zc, 1}};
+        double translacaoBack[4][4] = {{1, 0, 0, 0},
+                                       {0, 1, 0, 0},
+                                       {0, 0, 1, 0},
+                                       {Xc, Yc, Zc, 1}};
+        double resultado[4];
+        if(homogenea){
+                resultado[0] = ponto[0] * translacao[0][0] + ponto[1]*translacao[1][0] + ponto[2]*translacao[2][0] + ponto[3]*translacao[3][0];
+                resultado[1] = ponto[0] * translacao[0][1] + ponto[1]*translacao[1][1] + ponto[2]*translacao[2][1] + ponto[3]*translacao[3][1];
+                resultado[2] = ponto[0] * translacao[0][2] + ponto[1]*translacao[1][2] + ponto[2]*translacao[2][2] + ponto[3]*translacao[3][2];
+                resultado[3] = ponto[0] * translacao[0][3] + ponto[1]*translacao[1][3] + ponto[2]*translacao[2][3] + ponto[3]*translacao[3][3];
+                resultado[3] = 1;
+
+                resultado[0] = resultado[0] * escalonamento[0][0] + resultado[1] * escalonamento[1][0] + resultado[2]*escalonamento[2][0] + resultado[3]*escalonamento[3][0];
+                resultado[1] = resultado[0] * escalonamento[0][1] + resultado[1] * escalonamento[1][1] + resultado[2]*escalonamento[2][1] + resultado[3]*escalonamento[3][1];
+                resultado[2] = resultado[0] * escalonamento[0][2] + resultado[1] * escalonamento[1][2] + resultado[2]*escalonamento[2][2] + resultado[3]*escalonamento[3][2];
+                resultado[3] = resultado[0] * escalonamento[0][3] + resultado[1] * escalonamento[1][3] + resultado[2]*escalonamento[2][3] + resultado[3]*escalonamento[3][3];
+
+                resultado[0] = resultado[0] * translacaoBack[0][0] + resultado[1]*translacaoBack[1][0] + resultado[2]*translacaoBack[2][0] + resultado[3]*translacaoBack[3][0];
+				resultado[1] = resultado[0] * translacaoBack[0][1] + resultado[1]*translacaoBack[1][1] + resultado[2]*translacaoBack[2][1] + resultado[3]*translacaoBack[3][1];
+                resultado[2] = resultado[0] * translacaoBack[0][2] + resultado[1]*translacaoBack[1][2] + resultado[2]*translacaoBack[2][2] + resultado[3]*translacaoBack[3][2];
+                resultado[3] = resultado[0] * translacaoBack[0][3] + resultado[1]*translacaoBack[1][3] + resultado[2]*translacaoBack[2][3] + resultado[3]*translacaoBack[3][3];
+
+                *px = resultado[0];
+                *py = resultado[1];
+                *pz = resultado[2];
+        }else{
+                *px = *px*x;
+                *py = *py*y;
+                *pz = *pz*z;
+
+        }
+
+}
+
+ void Poligono::rotacao3D(double teta, double *px, double *py, double *pz, double Xc, double Yc, double Zc, boolean homogenea, int eixo)
+{
+        double x, y, z;
+		double ponto[4] = {*px, *py, *pz, 1};
+		double angulo = teta * M_PI / 180;
+		double rotacao[4][4];
+        double resultado[4];
+        double translacaoBack[4][4] = {{1, 0, 0, 0},
+                                       {0, 1, 0, 0},
+                                       {0, 0, 1, 0},
+                                       {Xc, Yc, Zc, 1}};
+		double translacao[4][4] = {{1, 0, 0, 0},
+                                   {0, 1, 0, 0},
+								   {0, 0, 1, 0},
+                                   {-Xc, -Yc, -Zc, 1}};
+
+        double rotacaoX[4][4] = {{1, 0, 0, 0},
+                                 {0, cos(angulo), sin(angulo), 0},
+                                 {0, -sin(angulo), cos(angulo), 0},
+                                 {0, 0, 0, 1}};
+
+        double rotacaoY[4][4] = {{cos(angulo), 0, -sin(angulo), 0},
+                                 {0, 1, 0, 0},
+                                 {sin(angulo), 0, cos(angulo), 0},
+                                 {0, 0, 0, 1}};
+
+        double rotacaoZ[4][4] = {{cos(angulo), sin(angulo), 0, 0},
+                                 {-sin(angulo), cos(angulo), 0, 0},
+                                 {0, 0, 1, 0},
+                                 {0, 0, 0, 1}};
+
+        for (int i = 0; i < 4; i++)
+        {
+                for (int k = 0; k < 4; k++)
+                {
+                        switch (eixo)
+                        {
+                        case 0:
+                                rotacao[i][k] = rotacaoX[i][k];
+                                break;
+                        case 1:
+                                rotacao[i][k] = rotacaoY[i][k];
+                                break;
+                        case 2:
+                                rotacao[i][k] = rotacaoZ[i][k];
+                                break;
+                        }
+                }
+        }
+
+        if (homogenea)
+        {
+                resultado[0] = ponto[0] * translacao[0][0] + ponto[1] * translacao[1][0] + ponto[2] * translacao[2][0] + ponto[3] * translacao[3][0];
+                resultado[1] = ponto[0] * translacao[0][1] + ponto[1] * translacao[1][1] + ponto[2] * translacao[2][1] + ponto[3] * translacao[3][1];
+                resultado[2] = ponto[0] * translacao[0][2] + ponto[1] * translacao[1][2] + ponto[2] * translacao[2][2] + ponto[3] * translacao[3][2];
+                resultado[3] = ponto[0] * translacao[0][3] + ponto[1] * translacao[1][3] + ponto[2] * translacao[2][3] + ponto[3] * translacao[3][3];
+
+                x = resultado[0];
+                y = resultado[1];
+                z = resultado[2];
+                resultado[0] = x * rotacao[0][0] + y * rotacao[1][0] + z * rotacao[2][0] + resultado[3] * rotacao[3][0];
+                resultado[1] = x * rotacao[0][1] + y * rotacao[1][1] + z * rotacao[2][1] + resultado[3] * rotacao[3][1];
+                resultado[2] = x * rotacao[0][2] + y * rotacao[1][2] + z * rotacao[2][2] + resultado[3] * rotacao[3][2];
+                resultado[3] = x * rotacao[0][3] + y * rotacao[1][3] + z * rotacao[2][3] + resultado[3] * rotacao[3][3];
+
+                resultado[0] = resultado[0] * translacaoBack[0][0] + resultado[1] * translacaoBack[1][0] + resultado[2] * translacaoBack[2][0] + resultado[3] * translacaoBack[3][0];
+                resultado[1] = resultado[0] * translacaoBack[0][1] + resultado[1] * translacaoBack[1][1] + resultado[2] * translacaoBack[2][1] + resultado[3] * translacaoBack[3][1];
+                resultado[2] = resultado[0] * translacaoBack[0][2] + resultado[1] * translacaoBack[1][2] + resultado[2] * translacaoBack[2][2] + resultado[3] * translacaoBack[3][2];
+                resultado[3] = resultado[0] * translacaoBack[0][3] + resultado[1] * translacaoBack[1][3] + resultado[2] * translacaoBack[2][3] + resultado[3] * translacaoBack[3][3];
+
+                *px = resultado[0];
+                *py = resultado[1];
+                *pz = resultado[2];
+        }
+        else
+        {
+                switch (eixo)
+                {
+                case 0:
+                        // ROTA��O EM TORNO DO EIXO X
+                        y = *py;
+                        z = *pz;
+
+                        *py = y * cos(angulo) - z * sin(angulo);
+                        *pz = y * sin(angulo) + z * cos(angulo);
+                        break;
+                case 1:
+                        // ROTA��O EM TORNO DO EIXO Y
+                        x = *px;
+                        z = *pz;
+
+                        *px = z * sin(angulo) + x * cos(angulo);
+                        *pz = z * cos(angulo) - x * sin(angulo);
+                        break;
+                case 2:
+                        // ROTA��O EM TORNO DO EIXO Z
+                        x = *px;
+                        y = *py;
+
+                        *px = x * cos(angulo) - y * sin(angulo);
+                        *py = x * sin(angulo) + y * cos(angulo);
+                        break;
+                }
+        }
+}
 
 //-------------------------------------------------------//
 //CURVAS
@@ -631,4 +808,42 @@ Poligono Poligono::clipping(Janela clip, int nPol)
                 }
         }
         return poligono;
+}
+
+
+double Poligono::PontoCentralX()
+{
+        double Xc;
+        for (int i = 0; i < pontos.size(); i++)
+        {
+                Xc = Xc + pontos[i].x;
+        }
+        Xc = Xc / (pontos.size());
+        return Xc;
+}
+
+double Poligono::PontoCentralY()
+{
+        double Yc;
+        for (int i = 0; i < pontos.size(); i++)
+        {
+
+                Yc = Yc + pontos[i].y;
+        }
+
+        Yc = Yc / (pontos.size());
+        return Yc;
+}
+
+double Poligono::PontoCentralZ()
+{
+        double Zc;
+        for (int i = 0; i < pontos.size(); i++)
+        {
+
+                Zc = Zc + pontos[i].z;
+        }
+
+        Zc = Zc / (pontos.size());
+        return Zc;
 }
