@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2024/03/06 14:33:08.000.426,=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
     <Transaction>2024/03/06 14:33:08.000.340,=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
-    <Transaction>2024/03/06 14:33:49.000.539,C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit1.cpp</Transaction>
-    <Transaction>2024/03/06 14:33:49.000.539,C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit1.h</Transaction>
-    <Transaction>2024/03/06 14:33:49.000.539,C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit1.dfm</Transaction>
-    <Transaction>2024/03/06 14:43:26.000.514,C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Project1PCH1.h</Transaction>
-    <Transaction>2024/03/06 14:43:26.000.543,C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Project1.cbproj=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Project1.cbproj</Transaction>
+    <Transaction>2024/03/06 14:33:08.000.426,=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2024/03/06 14:33:49.000.539,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit1.h=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.h</Transaction>
+    <Transaction>2024/03/06 14:33:49.000.539,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit1.dfm=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2024/03/06 14:33:49.000.539,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit1.cpp=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2024/03/06 14:43:26.000.543,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Project1.cbproj=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>2024/03/06 14:43:26.000.514,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Project1PCH1.h=C:\Users\Ângelo\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
     <Transaction>2024/03/12 16:15:46.000.608,=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
-    <Transaction>2024/03/12 16:16:09.000.467,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto.cpp</Transaction>
-    <Transaction>2024/03/12 16:16:09.000.467,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto.h</Transaction>
+    <Transaction>2024/03/12 16:16:09.000.467,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
+    <Transaction>2024/03/12 16:16:09.000.467,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h</Transaction>
     <Transaction>2024/03/12 16:32:13.000.827,=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
     <Transaction>2024/03/12 16:36:16.000.396,=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
-    <Transaction>2024/03/12 16:36:47.000.889,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto2.h</Transaction>
-    <Transaction>2024/03/12 16:36:47.000.889,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto2.cpp</Transaction>
+    <Transaction>2024/03/12 16:36:47.000.889,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto2.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h</Transaction>
+    <Transaction>2024/03/12 16:36:47.000.889,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Uponto2.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
     <Transaction>2024/03/12 16:48:17.000.396,=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
-    <Transaction>2024/03/12 16:48:34.000.471,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Ujanela.h</Transaction>
-    <Transaction>2024/03/12 16:48:34.000.471,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Ujanela.cpp</Transaction>
+    <Transaction>2024/03/12 16:48:34.000.471,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Ujanela.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h</Transaction>
+    <Transaction>2024/03/12 16:48:34.000.471,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Ujanela.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
     <Transaction>2024/03/13 13:28:08.000.678,=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
-    <Transaction>2024/03/13 13:28:22.000.969,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Upoligono.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h</Transaction>
-    <Transaction>2024/03/13 13:28:22.000.969,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Upoligono.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
+    <Transaction>2024/03/13 13:28:22.000.969,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Upoligono.h</Transaction>
+    <Transaction>2024/03/13 13:28:22.000.969,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Upoligono.cpp</Transaction>
     <Transaction>2024/03/13 13:36:07.000.468,=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
-    <Transaction>2024/03/13 13:36:35.000.896,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Udisplayfile.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp</Transaction>
-    <Transaction>2024/03/13 13:36:35.000.896,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Udisplayfile.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h</Transaction>
+    <Transaction>2024/03/13 13:36:35.000.896,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.cpp=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Udisplayfile.cpp</Transaction>
+    <Transaction>2024/03/13 13:36:35.000.896,C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Unit2.h=C:\Users\Ângelo\Desktop\CC\5' PERÍODO\COMPUTAÇÃO GRÁFICA\PROJETOS\Udisplayfile.h</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Project1.cpp"/>

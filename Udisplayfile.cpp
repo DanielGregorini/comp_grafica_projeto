@@ -11,7 +11,6 @@
 
 void DisplayFile::desenha(TCanvas *canvas, Janela mundo, Janela vp, int tipoReta)
 {
-
     canvas->Brush->Color = clSilver;
     canvas->FillRect(Rect(0, 0, 500, 500));
 

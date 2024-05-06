@@ -20,9 +20,6 @@ Ponto::Ponto(double nx, double ny, double nz){
 	z = nz;
 }
 
-int xW2Vp(Janela mundo, Janela vp);
-int yW2Vp(Janela mundo, Janela vp);
-
 int Ponto::xW2Vp(Janela mundo, Janela vp){
 	return ((x - mundo.xMin) / (mundo.xMax - mundo.xMin)) * (vp.xMax - vp.xMin);
 }

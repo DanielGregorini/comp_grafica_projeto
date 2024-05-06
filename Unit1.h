@@ -36,7 +36,6 @@ __published:	// IDE-managed Components
 	TButton *LeftButton;
 	TButton *ZoomInButton;
 	TButton *ZoomOutButton;
-	TButton *Button3;
 	TRadioGroup *rgTipoReta;
 	TEdit *edx;
 	TEdit *edy;
@@ -73,6 +72,7 @@ __published:	// IDE-managed Components
 	TEdit *EditX3D;
 	TEdit *EditY3D;
 	TEdit *EditZ3D;
+	TLabel *Label2;
 	void __fastcall Image1MouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Image1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,

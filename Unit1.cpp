@@ -103,6 +103,7 @@ void __fastcall TForm1::Image1MouseMove(TObject *Sender, TShiftState Shift, int 
 }
 //---------------------------------------------------------------------------
 
+//atualizar mundo
 void __fastcall TForm1::Button1Click(TObject *Sender)
 { /*
  int x, y;
@@ -202,15 +203,17 @@ void __fastcall TForm1::Image1MouseDown(TObject *Sender, TMouseButton Button, TS
 }
 //---------------------------------------------------------------------------
 
+//inicar poligono
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
     inicia = true;
 }
 //---------------------------------------------------------------------------
 
+//cima
 void __fastcall TForm1::TopButtonClick(TObject *Sender)
 {
-    mundo.yMin += 10;
+	mundo.yMin += 10;
     mundo.yMax += 10;
 
     display.poligonos[0].pontos[0].y = mundo.yMax;
@@ -225,6 +228,7 @@ void __fastcall TForm1::TopButtonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//baixo
 void __fastcall TForm1::LowButtonClick(TObject *Sender)
 {
     mundo.yMin -= 10;
@@ -240,11 +244,12 @@ void __fastcall TForm1::LowButtonClick(TObject *Sender)
     edYMin->Text = FloatToStr(mundo.yMin);
     edYMax->Text = FloatToStr(mundo.yMax);
 }
-//-----fdfdfdfdffff---------------------------------------------------------
+//--------------------------------------------------------------
 
+//direita
 void __fastcall TForm1::RightButtonClick(TObject *Sender)
 {
-    mundo.xMin += 10;
+	mundo.xMin += 10;
     mundo.xMax += 10;
 
     display.poligonos[0].pontos[0].y = mundo.yMax;
@@ -259,9 +264,10 @@ void __fastcall TForm1::RightButtonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//esquerda
 void __fastcall TForm1::LeftButtonClick(TObject *Sender)
 {
-    mundo.xMin -= 10;
+	mundo.xMin -= 10;
     mundo.xMax -= 10;
 
     display.poligonos[0].pontos[0].y = mundo.yMax;
@@ -276,9 +282,10 @@ void __fastcall TForm1::LeftButtonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//zoom in
 void __fastcall TForm1::ZoomInButtonClick(TObject *Sender)
 {
-    mundo.xMin += 10;
+	mundo.xMin += 10;
     mundo.xMax -= 10;
     mundo.yMin += 10;
     mundo.yMax -= 10;
@@ -297,9 +304,10 @@ void __fastcall TForm1::ZoomInButtonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//zoom out
 void __fastcall TForm1::ZoomOutButtonClick(TObject *Sender)
 {
-    mundo.xMin -= 10;
+	mundo.xMin -= 10;
     mundo.xMax += 10;
     mundo.yMin -= 10;
     mundo.yMax += 10;
@@ -320,14 +328,14 @@ void __fastcall TForm1::ZoomOutButtonClick(TObject *Sender)
 
 void __fastcall TForm1::Button3Click(TObject *Sender)
 {
-
     display.desenha(Form1->Image1->Canvas, mundo, vp, rgTipoReta->ItemIndex);
 }
 //---------------------------------------------------------------------------
 
+//translacao
 void __fastcall TForm1::TranslaçãoClick(TObject *Sender)
 {
-    double dx, dy;
+	double dx, dy;
 
     dx = StrToFloat(edx->Text);
     dy = StrToFloat(edy->Text);
@@ -340,9 +348,10 @@ void __fastcall TForm1::TranslaçãoClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+// rodar ao redor do centro
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
-    // anguloRotacao
+	// anguloRotacao
     double angulo_graus, angulo_radius;
     angulo_graus = StrToFloat(anguloRotacao->Text);
 
@@ -360,9 +369,10 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
 
 //---------------------------------------------------------------------------
 
+//escalonar
 void __fastcall TForm1::escalonamento_buttonClick(TObject *Sender)
 {
-    double escalonador;
+	double escalonador;
 
     escalonador = StrToFloat(escalonamento_edit->Text);
 
@@ -375,9 +385,10 @@ void __fastcall TForm1::escalonamento_buttonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//reflexao
 void __fastcall TForm1::reflexao_buttonClick(TObject *Sender)
 {
-    if (LBPOLIGONOS->ItemIndex != -1)
+	if (LBPOLIGONOS->ItemIndex != -1)
     {
         int tipoReflexao = radio_reflexao->ItemIndex;
 
@@ -399,9 +410,10 @@ void __fastcall TForm1::LBPOLIGONOSClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//rodar no eixo
 void __fastcall TForm1::rodar_eixo_buttonClick(TObject *Sender)
 {
-    // anguloRotacao
+	// anguloRotacao
     double angulo_graus, angulo_radius;
     angulo_graus = StrToFloat(anguloRotacao->Text);
 
@@ -415,15 +427,18 @@ void __fastcall TForm1::rodar_eixo_buttonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//iniciar circuferencia
 void __fastcall TForm1::inicar_circ_buttonClick(TObject *Sender)
 {
-    inicia_circunferencia = true;
+	inicia_circunferencia = true;
 }
 //---------------------------------------------------------------------------
 
+
+//Casteljau
 void __fastcall TForm1::casteljau_buttonClick(TObject *Sender)
 {
-    if (LBPOLIGONOS->ItemIndex != -1)
+	if (LBPOLIGONOS->ItemIndex != -1)
     {
         if (display.poligonos[LBPOLIGONOS->ItemIndex].pontos.size() == 3)
         {
@@ -452,9 +467,10 @@ void __fastcall TForm1::casteljau_buttonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//Hermite
 void __fastcall TForm1::hermite_buttonClick(TObject *Sender)
 {
-    if (LBPOLIGONOS->ItemIndex != -1)
+	if (LBPOLIGONOS->ItemIndex != -1)
     {
         if (display.poligonos[LBPOLIGONOS->ItemIndex].pontos.size() == 4)
         {
@@ -485,9 +501,10 @@ void __fastcall TForm1::hermite_buttonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//belier
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
-    if (LBPOLIGONOS->ItemIndex != -1)
+	if (LBPOLIGONOS->ItemIndex != -1)
     {
         if (display.poligonos[LBPOLIGONOS->ItemIndex].pontos.size() == 4)
         {
@@ -502,7 +519,7 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
             pol.tipo = 'B';
 
             display.poligonos.push_back(pol);
-            pol.pontos.clear();
+			pol.pontos.clear();
 
             display.mostra(Form1->LBPOLIGONOS);
 
@@ -516,9 +533,10 @@ void __fastcall TForm1::Button5Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//B-Spline
 void __fastcall TForm1::btnBsplineClick(TObject *Sender)
 {
-    if (LBPOLIGONOS->ItemIndex != -1)
+	if (LBPOLIGONOS->ItemIndex != -1)
     {
         if (display.poligonos[LBPOLIGONOS->ItemIndex].pontos.size() == 4)
         {
@@ -546,9 +564,12 @@ void __fastcall TForm1::btnBsplineClick(TObject *Sender)
     }
     //---------------------------------------------------------------------------
 }
+//-----------------------------------------------------------------------------//
+
+//Forward Bezier
 void __fastcall TForm1::btnForwardBezierClick(TObject *Sender)
 {
-    if (LBPOLIGONOS->ItemIndex != -1)
+	if (LBPOLIGONOS->ItemIndex != -1)
     {
         if (display.poligonos[LBPOLIGONOS->ItemIndex].pontos.size() == 4)
         {
@@ -574,7 +595,7 @@ void __fastcall TForm1::btnForwardBezierClick(TObject *Sender)
             ShowMessage("Selecione um poligono com 4 pontos");
         }
     }
-    //---------------------------------------------------------------------------
+
 }
 
 //----------clipping
@@ -622,6 +643,7 @@ void __fastcall TForm1::Button6Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//translacao homogenia
 void __fastcall TForm1::TranslacaoHomogeniaButtonClick(TObject *Sender)
 {
 	double dx, dy;
@@ -637,9 +659,10 @@ void __fastcall TForm1::TranslacaoHomogeniaButtonClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//novo poligono 3d
 void __fastcall TForm1::bt3DClick(TObject *Sender)
 {
-    FILE *file;
+	FILE *file;
     int k, auxInt;
     Ponto aux;
     Poligono pol;
@@ -692,9 +715,10 @@ void __fastcall TForm1::bt3DClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//rotaiona 3d
 void __fastcall TForm1::btRotaciona3DClick(TObject *Sender)
 {
-    double graus;
+	double graus;
     graus = StrToFloat(anguloRotacao->Text);
 
     if (LBPOLIGONOS->ItemIndex >= 0)
@@ -722,9 +746,10 @@ void __fastcall TForm1::btRotaciona3DClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+//translacao 3d
 void __fastcall TForm1::btTranslada3DClick(TObject *Sender)
 {
-    double dx, dy, dz;
+	double dx, dy, dz;
     dx = StrToFloat(EditX3D->Text);
     dy = StrToFloat(EditY3D->Text);
     dz = StrToFloat(EditZ3D->Text);
@@ -741,9 +766,11 @@ void __fastcall TForm1::btTranslada3DClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+//escalona 3d
 void __fastcall TForm1::btEscalona3DClick(TObject *Sender)
 {
-    double dx, dy, dz;
+	double dx, dy, dz;
     dx = StrToFloat(EditX3D->Text);
     dy = StrToFloat(EditY3D->Text);
     dz = StrToFloat(EditZ3D->Text);
