@@ -126,8 +126,8 @@
     Caption = 'Y'
   end
   object Label8: TLabel
-    Left = 957
-    Top = 283
+    Left = 958
+    Top = 290
     Width = 36
     Height = 15
     Caption = 'Curvas'
@@ -154,9 +154,9 @@
     Caption = 'Z'
   end
   object Label2: TLabel
-    Left = 978
-    Top = 449
-    Width = 15
+    Left = 980
+    Top = 451
+    Width = 14
     Height = 15
     Caption = '3D'
   end
@@ -511,8 +511,8 @@
     OnClick = inicar_circ_buttonClick
   end
   object casteljau_button: TButton
-    Left = 890
-    Top = 305
+    Left = 891
+    Top = 312
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -524,8 +524,8 @@
     OnClick = casteljau_buttonClick
   end
   object hermite_button: TButton
-    Left = 889
-    Top = 344
+    Left = 890
+    Top = 351
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -537,8 +537,8 @@
     OnClick = hermite_buttonClick
   end
   object Button5: TButton
-    Left = 992
-    Top = 305
+    Left = 993
+    Top = 312
     Width = 94
     Height = 31
     Margins.Left = 4
@@ -550,8 +550,8 @@
     OnClick = Button5Click
   end
   object btnBspline: TButton
-    Left = 992
-    Top = 344
+    Left = 993
+    Top = 351
     Width = 94
     Height = 31
     Cursor = crHandPoint
@@ -564,8 +564,8 @@
     OnClick = btnBsplineClick
   end
   object btnForwardBezier: TButton
-    Left = 889
-    Top = 382
+    Left = 890
+    Top = 389
     Width = 96
     Height = 32
     Cursor = crHandPoint
@@ -592,8 +592,8 @@
     OnClick = TranslacaoHomogeniaButtonClick
   end
   object bt3D: TButton
-    Left = 887
-    Top = 470
+    Left = 889
+    Top = 472
     Width = 96
     Height = 33
     Caption = 'Novo Poligono 3D'
@@ -603,14 +603,14 @@
   object TipoPoligono3D: TRadioGroup
     Left = 751
     Top = 413
-    Width = 98
+    Width = 120
     Height = 81
     Caption = 'Poligono 3D'
     Items.Strings = (
+      'Cubo centro'
       'Cubo'
-      'Cubo 2'
-      'Piramide'
-      'Piramide 2')
+      'Piramide centro'
+      'Piramide')
     TabOrder = 35
   end
   object tipoEixo3D: TRadioGroup
@@ -628,8 +628,8 @@
     TabOrder = 36
   end
   object btRotaciona3D: TButton
-    Left = 885
-    Top = 509
+    Left = 887
+    Top = 511
     Width = 97
     Height = 34
     Caption = 'Rotaciona 3D'
@@ -637,8 +637,8 @@
     OnClick = btRotaciona3DClick
   end
   object btEscalona3D: TButton
-    Left = 988
-    Top = 509
+    Left = 990
+    Top = 511
     Width = 97
     Height = 33
     Caption = 'Escalona 3D'
@@ -646,8 +646,8 @@
     OnClick = btEscalona3DClick
   end
   object btTranslada3D: TButton
-    Left = 989
-    Top = 470
+    Left = 991
+    Top = 472
     Width = 97
     Height = 33
     Caption = 'Transla'#231#227'o 3D'
