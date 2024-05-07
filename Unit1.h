@@ -73,6 +73,7 @@ __published:	// IDE-managed Components
 	TEdit *EditY3D;
 	TEdit *EditZ3D;
 	TLabel *Label2;
+	TEdit *editDRodar;
 	void __fastcall Image1MouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Image1MouseDown(TObject *Sender, TMouseButton Button, TShiftState Shift,

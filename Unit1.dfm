@@ -592,9 +592,9 @@
     OnClick = TranslacaoHomogeniaButtonClick
   end
   object bt3D: TButton
-    Left = 889
+    Left = 877
     Top = 472
-    Width = 96
+    Width = 108
     Height = 33
     Caption = 'Novo Poligono 3D'
     TabOrder = 34
@@ -628,9 +628,9 @@
     TabOrder = 36
   end
   object btRotaciona3D: TButton
-    Left = 887
-    Top = 511
-    Width = 97
+    Left = 877
+    Top = 546
+    Width = 107
     Height = 34
     Caption = 'Rotaciona 3D'
     TabOrder = 37
@@ -688,6 +688,18 @@
     Width = 65
     Height = 23
     TabOrder = 43
+    Text = '0'
+  end
+  object editDRodar: TEdit
+    Left = 903
+    Top = 516
+    Width = 43
+    Height = 23
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    TabOrder = 44
     Text = '0'
   end
 end

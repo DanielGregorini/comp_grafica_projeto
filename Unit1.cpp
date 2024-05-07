@@ -719,7 +719,7 @@ void __fastcall TForm1::bt3DClick(TObject *Sender)
 void __fastcall TForm1::btRotaciona3DClick(TObject *Sender)
 {
 	double graus;
-    graus = StrToFloat(anguloRotacao->Text);
+	graus = StrToFloat(editDRodar->Text);
 
     if (LBPOLIGONOS->ItemIndex >= 0)
     {
