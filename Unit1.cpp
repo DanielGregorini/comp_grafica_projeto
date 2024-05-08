@@ -443,7 +443,7 @@ void __fastcall TForm1::casteljau_buttonClick(TObject *Sender)
         if (display.poligonos[LBPOLIGONOS->ItemIndex].pontos.size() == 3)
         {
 
-            pol = display.poligonos[LBPOLIGONOS->ItemIndex];
+			pol = display.poligonos[LBPOLIGONOS->ItemIndex];
 
             Poligono pol_aux;
 
@@ -451,8 +451,8 @@ void __fastcall TForm1::casteljau_buttonClick(TObject *Sender)
 
             // pol.pontos.pop_front();
 
-            pol.tipo = 'D';
-            display.poligonos.push_back(pol);
+			pol_aux.tipo = 'D';
+			display.poligonos.push_back(pol_aux);
             pol.pontos.clear();
 
             display.mostra(Form1->LBPOLIGONOS);

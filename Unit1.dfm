@@ -257,8 +257,8 @@
     Text = '-250'
   end
   object edXMax: TEdit
-    Left = 514
-    Top = 387
+    Left = 513
+    Top = 383
     Width = 151
     Height = 23
     Margins.Left = 4

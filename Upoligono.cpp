@@ -569,90 +569,58 @@ void Poligono::bSpline(Ponto p1, Ponto p2, Ponto p3, Ponto p4)
 
 void Poligono::fwdDifferences(Ponto p1, Ponto p2, Ponto p3, Ponto p4)
 {
-        Ponto aux;
-        double delta1 = (double)(1 / 100.0);
-        double delta2 = (double)(pow((double)delta1, 2));
-        double delta3 = (double)(pow((double)delta1, 3));
+    Ponto aux;
+    double delta1 = (double)(1 / 100.0);
+    double delta2 = (double)(pow((double)delta1, 2));
+    double delta3 = (double)(pow((double)delta1, 3));
+    double MatrizBezier[4][4] = { { -1, 3, -3, 1 }, { 3, -6, 3, 0 },
+		{ -3, 3, 0, 0 }, { 1, 0, 0, 0 } };
+    double mPtsX[4][1] = { { p1.x }, { p2.x }, { p3.x }, { p4.x } };
+    double mPtsY[4][1] = { { p1.y }, { p2.y }, { p3.y }, { p4.y } };
+    double matrizX[4][4] = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 },
+        { 0, 0, 0, 0 } };
+    double matrizY[4][4] = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 } };
 
-        double MatrizBezier[4][4] = {{-1, 3, -3, 1},
-                                     {3, -6, 3, 0},
-                                     {-3, 3, 0, 0},
-                                     {1, 0, 0, 0}};
-
-        double mPtsX[4][1] = {{p1.x},
-                              {p2.x},
-                              {p3.x},
-                              {p4.x}};
-
-        double mPtsY[4][1] = {{p1.y},
-                              {p2.y},
-                              {p3.y},
-                              {p4.y}};
-
-        double matrizX[4][4] = {{0, 0, 0, 0},
-                                {0, 0, 0, 0},
-                                {0, 0, 0, 0},
-                                {0, 0, 0, 0}};
-
-        double matrizY[4][4] = {{0, 0, 0, 0},
-                                {0, 0, 0, 0},
-                                {0, 0, 0, 0},
-                                {0, 0, 0, 0}};
-
-		for (int i = 0; i < 4; i++)
-        {
-                for (int j = 0; j < 1; j++)
-                {
-                        for (int k = 0; k < 4; k++)
-                        {
-                                matrizX[i][j] += MatrizBezier[i][k] * mPtsX[k][j];
-                        }
-                }
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 1; j++) {
+            for (int k = 0; k < 4; k++) {
+                matrizX[i][j] += MatrizBezier[i][k] * mPtsX[k][j];
+            }
         }
+	}
 
-
-        for (int i = 0; i < 4; i++)
-        {
-                for (int j = 0; j < 1; j++)
-                {
-                        for (int k = 0; k < 4; k++)
-                        {
-                                matrizY[i][j] += MatrizBezier[i][k] * mPtsY[k][j];
-                        }
-                }
+	for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 1; j++) {
+            for (int k = 0; k < 4; k++) {
+                matrizY[i][j] += MatrizBezier[i][k] * mPtsY[k][j];
+            }
         }
+    }
+    double matrizDx[4][1];
+    double matrizDy[4][1];
+    matrizDx[0][0] = matrizX[3][0];
+    matrizDx[1][0] = matrizX[0][0] * delta3 + matrizX[1][0] * delta2 +
+                     matrizX[2][0] * delta1;
+    matrizDx[2][0] = 6 * matrizX[0][0] * delta3 + 2 * matrizX[1][0] * delta2;
+    matrizDx[3][0] = 6 * matrizX[0][0] * delta3;
+    matrizDy[0][0] = matrizY[3][0];
+    matrizDy[1][0] = matrizY[0][0] * delta3 + matrizY[1][0] * delta2 +
+                     matrizY[2][0] * delta1;
+    matrizDy[2][0] = 6 * matrizY[0][0] * delta3 + 2 * matrizY[1][0] * delta2;
+	matrizDy[3][0] = 6 * matrizY[0][0] * delta3;
 
-        double matrizDx[4][1];
-        double matrizDy[4][1];
-
-
-
-        matrizDx[0][0] = matrizX[3][0];
-        matrizDx[1][0] = matrizX[0][0] * delta3 + matrizX[1][0] * delta2 + matrizX[2][0] * delta1;
-        matrizDx[2][0] = 6 * matrizX[0][0] * delta3 + 2 * matrizX[1][0] * delta2;
-
-
-        matrizDy[0][0] = matrizY[3][0];
-        matrizDy[1][0] = matrizY[0][0] * delta3 + matrizY[1][0] * delta2 + matrizY[2][0] * delta1;
-        matrizDy[2][0] = 6 * matrizY[0][0] * delta3 + 2 * matrizY[1][0] * delta2;
-        matrizDy[3][0] = 6 * matrizY[0][0] * delta3;
-
-
-
-        for (double t = 0; t < 100; t++)
-        {
-                matrizDx[0][0] += matrizDx[1][0];
-                matrizDx[1][0] += matrizDx[2][0];
-                matrizDx[2][0] += matrizDx[3][0];
-
-                matrizDy[0][0] += matrizDy[1][0];
-                matrizDy[1][0] += matrizDy[2][0];
-                matrizDy[2][0] += matrizDy[3][0];
-
-                aux.x = matrizDx[0][0];
-                aux.y = matrizDy[0][0];
-                pontos.push_back(aux);
-        }
+    for (double t = 0; t < 100; t++) {
+        matrizDx[0][0] += matrizDx[1][0];
+        matrizDx[1][0] += matrizDx[2][0];
+        matrizDx[2][0] += matrizDx[3][0];
+        matrizDy[0][0] += matrizDy[1][0];
+        matrizDy[1][0] += matrizDy[2][0];
+        matrizDy[2][0] += matrizDy[3][0];
+        aux.x = matrizDx[0][0];
+        aux.y = matrizDy[0][0];
+        pontos.push_back(aux);
+    }
 }
 
 // CLIPPING
